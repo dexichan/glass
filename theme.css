@@ -1,16 +1,12 @@
 /**
- * @name Saf Kontrastli Seffaf Cam Tema
+ * @name Saf Seffaf Yuksek Kontrast
  * @author Musab
- * @version 2.1.0
+ * @version 2.2.0
  */
 
-/* 1. HAFİF CAM KATMANI VE ŞEFFAFLIK */
-/* En dış katmana hafif gri/siyah bir cam tonu vererek pencere sınırını belli ediyoruz ve tıklama hatasını çözüyoruz */
-body {
-    background-color: rgba(20, 20, 20, 0.45) !important;
-}
-
-/* Discord'un tüm iç katmanlarını tamamen şeffaf yapıyoruz ki arkadaki cam katmanı görünsün */
+/* 1. TAM ŞEFFAFLIK (GRİ TABAKA İPTAL) */
+/* Discord'un tüm ana ve alt katmanlarını tamamen şeffaf yapıyoruz */
+body,
 #app-mount, 
 [class*="app_"], 
 [class*="bg_"], 
@@ -25,13 +21,13 @@ body {
     background-color: transparent !important;
 }
 
-/* Sağ tık menüleri ve popoutlar havada kalmasın diye hafif belirginlik */
+/* Sadece sağ tık menüleri ve ayar pencereleri havada kalmasın diye hafif karartılı */
 [class*="layer_"] {
     background-color: rgba(15, 15, 15, 0.85) !important;
 }
 
 /* 2. KONTRAST ARTIRMA (ORİJİNAL RENKLERE DOKUNMADAN) */
-/* Yazı ve rol renklerine müdahale etmeden arkalarına net siyah bir gölge basarak kontrastı artırır */
+/* Yazı ve rol renklerine müdahale etmeden arkalarına net siyah bir gölge basarak okunabilirliği artırır */
 [class*="messageContent_"], 
 [class*="name_"], 
 [class*="username_"], 
@@ -50,7 +46,7 @@ body {
     }
 }
 
-/* Discord küçükken tüm animasyon efektlerini kapat */
+/* Discord küçükken veya arkadayken tüm animasyon efektlerini kapat */
 @media (max-width: 1199px) {
     *, [class*="channel_"], [class*="wrapper_"], [class*="message_"], [class*="interactive_"], [class*="member_"] {
         transition: none !important;
