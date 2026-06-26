@@ -81,5 +81,10 @@ div[class*="privateChannels_"] {
     mix-blend-mode: normal !important;
     opacity: 1 !important;
 }
-
+/* TÜM GİZLİ GÖLGELERİ VE ÇİZGİLERİ SIFIRLAMA */
+[class*="sidebar_"], [class*="channels_"], [class*="scroller_"] {
+    box-shadow: none !important;
+    border: none !important;
+    outline: none !important;
+}
 
