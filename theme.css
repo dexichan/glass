@@ -1,90 +1,19 @@
 /**
- * @name Son Nakavt Seffaf Tema
+ * @name Sol Blok Yikan Saf Seffaf
  * @author Musab
- * @version 5.0.0
- * [Guncel Discord Altyapisina Tam Uyumlu]
  */
 
-/* 1. TÜM ARKA PLAN SİSTEMİNİ KÖKTEN KÖR ETME */
-/* Discord ne kadar güncelleme yaparsa yapsın, tüm elementlerin arka plan rengini tamamen sıfırlar */
-*, 
-#app-mount, 
-html, 
-body {
-    background-image: none !important;
-    background-color: transparent !important;
-}
-
-/* 2. SADECE SAĞ TIK MENÜLERİ VE AYARLAR OKUNABİLSİN DİYE SABİT KATMAN */
-/* Bunlar şeffaf olursa yazıların içi içe girer, o yüzden hafif bir karartı şart */
-[class*="layer_"], 
-[class*="menu_"], 
-[class*="popout_"], 
-[class*="modal_"] {
-    background-color: rgba(10, 10, 10, 0.85) !important;
-}
-
-/* 3. YAZILARI KALINLAŞTIRMA VE PÜRÜZSÜZ GEÇİŞ */
-/* Orijinal renklere ve rollere dokunmadan sadece okunurluğu artırır, kasmayı engeller */
-[class*="name_"], 
-[class*="username_"], 
-[class*="channelName_"] {
-    font-weight: 700 !important;
-}
-
-@media (min-width: 1200px) {
-    [class*="channel_"], [class*="interactive_"], [class*="member_"] {
-        transition: background-color 0.12s ease-in-out !important;
-    }
-}
-/* SON DOKUNUŞ: SES ODALARI VE SOHBETLERİN OLDUĞU SOL SİYAH DUVARI YIKMA */
-/* Bu katmanları tamamen şeffaf yaparak arkadaki karanlık temayla birleştirir */
-[class*="sidebar_"], 
-[class*="container_"], 
-[class*="chat_"], 
+/* Discord'un tüm ana gövde renklerini, Koyu Tema katmanlarını ve sol bloğu kökten şeffaf yapar */
+#app-mount,
+html,
+body,
+[class*="app_"],
+[class*="bg_"],
+[class*="sidebar_"],
+[class*="chat_"],
+[class*="container_"],
+[class*="channels_"],
 [class*="panels_"] {
     background: transparent !important;
     background-color: transparent !important;
 }
-
-/* OKUNURLUK İÇİN HAFİF BİR KARARTMA (Opsiyonel ama önerilir) */
-/* Eğer yazılar okunmazsa bu kodu kullanabilirsin, yoksa direkt şeffaf kalsın */
-/*
-[class*="sidebar_"]::after {
-    content: "";
-    position: absolute;
-    top: 0; left: 0; width: 100%; height: 100%;
-    background-color: rgba(10, 10, 10, 0.4) !important;
-    z-index: -1;
-}
-*/
-/* SOL ŞERİTTEKİ TÜM SİNSİ SİYAH KATMANLARI ERİTME */
-nav[class*="sidebar_"],
-[class*="sidebar_"] [class*="container_"],
-[class*="sidebar_"] nav,
-[class*="sidebar_"] [class*="scroller_"],
-[class*="panels_"],
-[class*="container_"] [class*="inner_"] {
-    background: transparent !important;
-    background-color: transparent !important;
-}
-/* MONİTÖR KURTARAN NİHAİ ŞEFFAFLIK KODU */
-[class*="sidebar_"],
-[class*="sidebar_"] > *,
-[class*="channels_"],
-[class*="channels_"] > *,
-[class*="scroller_"],
-section[class*="panels_"],
-div[class*="privateChannels_"] {
-    background: transparent !important;
-    background-color: transparent !important;
-    mix-blend-mode: normal !important;
-    opacity: 1 !important;
-}
-/* TÜM GİZLİ GÖLGELERİ VE ÇİZGİLERİ SIFIRLAMA */
-[class*="sidebar_"], [class*="channels_"], [class*="scroller_"] {
-    box-shadow: none !important;
-    border: none !important;
-    outline: none !important;
-}
-
