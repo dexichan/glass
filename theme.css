@@ -105,3 +105,40 @@
         will-change: auto !important;
     }
 }
+/* 5. YAZI RENKLERİNİ PARLATMA VE NETLEŞTİRME */
+:root {
+    /* Discord'un ana yazı renklerini saf parlak beyaza zorlar */
+    --text-normal: #ffffff !important;
+    --text-muted: #dbdbdb !important; /* Soluk açıklamaları ve durumları belirginleştirir */
+    --text-link: #00b0f4 !important;
+    --channels-default: #e0e0e0 !important; /* Kanal isimlerini parlatır */
+    --header-primary: #ffffff !important;
+    --header-secondary: #f0f0f0 !important;
+    --interactive-normal: #e0e0e0 !important;
+    --interactive-hover: #ffffff !important;
+    --interactive-active: #ffffff !important;
+}
+
+/* Kanal isimleri, DM listesi ve kullanıcı adlarını kalınlaştırıp keskinleştirir */
+.name__8d1ec, 
+.username_d272d6, 
+.channelName__8d1ec, 
+.activityText__78a59, 
+.customStatus__78a59,
+.text-xs-normal__46d7a {
+    color: #ffffff !important;
+    font-weight: 650 !important; /* Yazıları daha dolgun yapar */
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 1), 0 0 4px rgba(0, 0, 0, 0.8) !important; /* Çift katmanlı zifiri siyah gölge */
+}
+
+/* "Şimdi Aktif" kısmındaki oyun ve Spotify gibi alt durum yazılarını parlatır */
+.activityText__78a59, .text-xs-normal__46d7a {
+    color: #f0f0f0 !important;
+    font-weight: 500 !important;
+}
+
+/* Okunmamış mesaj veya yeni bildirim olan kanalları ultra parlak yapar */
+.modeUnreadImportant__97d49 .name__8d1ec {
+    color: #ffffff !important;
+    text-shadow: 0 0 6px rgba(255, 255, 255, 0.6), 0 2px 4px rgba(0,0,0,1) !important;
+}
