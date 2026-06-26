@@ -1,0 +1,67 @@
+/**
+ * @name Saf Seffaf Tema
+ * @author Musab
+ * @version 1.0.0
+ * @description Tamamen seffaf, yuksek okunurluklu ve performans dostu Discord temasi.
+ */
+
+/* 1. TÜM GRİ ARKA PLANLARI SIFIRLAMA */
+:root {
+    --background-primary: transparent !important;
+    --background-secondary: transparent !important;
+    --background-secondary-alt: transparent !important;
+    --background-tertiary: transparent !important;
+    --background-accent: transparent !important;
+    --background-floating: rgba(0, 0, 0, 0.4) !important; /* Sağ tık menüleri tamamen görünmez olmasın diye hafif karartı */
+    
+    /* Kanalların ve mesajların arkasındaki gri gölgeleri kaldırır */
+    --background-modifier-hover: rgba(255, 255, 255, 0.05) !important;
+    --background-modifier-active: rgba(255, 255, 255, 0.1) !important;
+    --background-modifier-selected: rgba(255, 255, 255, 0.1) !important;
+    --deprecated-card-bg: transparent !important;
+}
+
+/* Discord ana katmanlarındaki tüm grilikleri siler */
+.theme-dark, .theme-light,
+#app-mount, 
+.app-3xd6d0, 
+.bg-1QIAzs, 
+.wrapper-1_HaEi,
+.container-1NXEAG,
+.privateChannels-oVe76H,
+.panels-3w311x,
+.chat-2ZfGZ9,
+.container-3w7wHL,
+.members-3WRCEx,
+.membersWrap-3NUR2t,
+.nowPlayingColumn-1eCBCN,
+.channelTextArea-1F3v1m,
+.scrollableContainer-15eg7h {
+    background: transparent !important;
+    background-color: transparent !important;
+}
+
+/* 2. YAZI OKUNABİLİRLİĞİNİ ARTIRMA (FONT BELİRGİNLEŞTİRME) */
+/* Mesajlar, kanal isimleri ve kullanıcı adlarına hafif siyah gölge vererek arkadaki resim ne olursa olsun okunmasını sağlar */
+.messageContent-2t3eCI, 
+.name-28CH6V, 
+.username-h_Y3Us, 
+.text-xs-normal__46d7a,
+.channelName-3vB8Ky {
+    font-weight: 600 !important; /* Yazıları kalınlaştırır */
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.95), 0 0 2px rgba(0, 0, 0, 1) !important; /* Keskin siyah gölge */
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Üye listesindeki ve sol taraftaki isimlerin rengini daha parlak beyaz yapar */
+.mainContent-20q_Hp .name-28CH6V,
+.roleColor-gc776b {
+    filter: drop-shadow(0px 1px 2px rgba(0,0,0,1));
+}
+
+/* 3. PERFORMANS AYARI (KASMA/DONMA ENGELLEME) */
+/* Discord'un gereksiz render işlemlerini azaltır */
+* {
+    backdrop-filter: none !important; /* Kasmaya sebep olan blur efektini tamamen kapatır */
+    transition: none !important; /* Gereksiz animasyon gecikmelerini silerek akıcılık sağlar */
+}
