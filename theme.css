@@ -65,3 +65,43 @@
     backdrop-filter: none !important; /* Kasmaya sebep olan blur efektini tamamen kapatır */
     transition: none !important; /* Gereksiz animasyon gecikmelerini silerek akıcılık sağlar */
 }
+/* 4. PERFORMANS DOSTU PÜRÜZSÜZ GEÇİŞ ANİMASYONLARI (MAX %10 GPU) */
+
+/* Sadece Discord tam ekran veya büyük penceredeyken animasyonlar çalışır */
+@media (min-width: 1200px) {
+    
+    /* Kanallar, sunucular ve mesajların üzerine gelindiğinde pürüzsüz renk geçişi */
+    .channel__97d49, 
+    .wrapper__2ea32, 
+    .message__3c6e3, 
+    .interactive_b39cd2,
+    .member__29fb5 {
+        transition: background-color 0.25s ease-in-out, transform 0.2s ease-out !important;
+        will-change: transform, background-color; /* Tarayıcıya önceden haber vererek GPU yükünü dengeler */
+    }
+
+    /* Sol menüdeki sunucu ikonlarının üzerine gelince hafifçe sağa esneme efekti */
+    .wrapper__2ea32:hover {
+        transform: translateX(2px) !important;
+    }
+
+    /* Kanalların üzerine gelince hafifçe sağa kayma efekti */
+    .channel__97d49:hover {
+        transform: translateX(3px) !important;
+    }
+
+    /* Arkadaş listesindeki isimlerin üzerine gelince hafifçe büyüme efekti */
+    .interactive_b39cd2:hover,
+    .member__29fb5:hover {
+        transform: scale(1.01) !important;
+    }
+}
+
+/* Discord penceresi küçültüldüğünde (1200px altı) TÜM ANİMASYONLARI KAPAT */
+@media (max-width: 1199px) {
+    *, .channel__97d49, .wrapper__2ea32, .message__3c6e3, .interactive_b39cd2, .member__29fb5 {
+        transition: none !important;
+        transform: none !important;
+        will-change: auto !important;
+    }
+}
