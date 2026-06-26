@@ -1,55 +1,58 @@
 /**
- * @name Saf Kontrastli Cam Tema
+ * @name Saf Kontrastli Seffaf Cam Tema
  * @author Musab
- * @version 2.0.0
- * @description Orijinal renklere dokunmayan, hafif gri/siyah cam katmanli, yuksek kontrastli ve performansli tema.
+ * @version 2.1.0
  */
 
-/* 1. HAFİF GRİ/SİYAH CAM KATMANI (TIKLAMA SORUNUNU ÇÖZEN KISIM) */
-/* Discord'un tamamen şeffaf olup arkaya tıklanmasını engellemek ve nerede olduğunu görmek için hafif bir koyuluk ekliyoruz */
-#app-mount {
-    background-color: rgba(20, 20, 20, 0.45) !important; /* Çok hafif, şeffaf bir gri/siyah cam katmanı */
+/* 1. HAFİF CAM KATMANI VE ŞEFFAFLIK */
+/* En dış katmana hafif gri/siyah bir cam tonu vererek pencere sınırını belli ediyoruz ve tıklama hatasını çözüyoruz */
+body {
+    background-color: rgba(20, 20, 20, 0.45) !important;
 }
 
-/* Ana katmanları transparan yaparak üst üste binip kararmasını engelliyoruz */
-.theme-dark, .theme-light,
-.app_b1f720, .bg__121ef, .wrapper_da6532, .container_e40c16, 
-.privateChannels__35e86, .panels__35e86, .chat__5c473, 
-.members__116b3, .membersWrap__116b3, .nowPlayingColumn_c2739c, 
-.channelTextArea__5c473, .scrollableContainer__5c473 {
+/* Discord'un tüm iç katmanlarını tamamen şeffaf yapıyoruz ki arkadaki cam katmanı görünsün */
+#app-mount, 
+[class*="app_"], 
+[class*="bg_"], 
+[class*="wrapper_"], 
+[class*="container_"], 
+[class*="chat_"], 
+[class*="content_"], 
+[class*="sidebar_"], 
+[class*="panels_"], 
+[class*="members_"] {
     background: transparent !important;
     background-color: transparent !important;
 }
 
-/* Sağ tık menüleri ve popoutlar biraz daha belirgin olsun */
-.layer_cd0d4a {
-    background-color: rgba(15, 15, 15, 0.8) !important;
+/* Sağ tık menüleri ve popoutlar havada kalmasın diye hafif belirginlik */
+[class*="layer_"] {
+    background-color: rgba(15, 15, 15, 0.85) !important;
 }
 
-/* 2. KONTRAST ARTIRMA (YAZI VE ROL RENKLERİNE DOKUNMADAN OKUNURLUK) */
-/* Yazı renklerini değiştirmeden, sadece arkalarına net siyah bir gölge basarak kontrastı tavan yaptırır */
-.messageContent__3c6e3, 
-.name__8d1ec, 
-.username_d272d6, 
-.channelName__8d1ec,
-.activityText__78a59,
-.text-xs-normal__46d7a {
+/* 2. KONTRAST ARTIRMA (ORİJİNAL RENKLERE DOKUNMADAN) */
+/* Yazı ve rol renklerine müdahale etmeden arkalarına net siyah bir gölge basarak kontrastı artırır */
+[class*="messageContent_"], 
+[class*="name_"], 
+[class*="username_"], 
+[class*="channelName_"],
+[class*="activityText_"],
+[class*="text-xs-normal_"] {
     text-shadow: 0 1px 3px rgba(0, 0, 0, 1), 0 0 2px rgba(0, 0, 0, 1) !important;
     -webkit-font-smoothing: antialiased !important;
 }
 
-/* 3. PERFORMANSLI PÜRÜZSÜZ RENK GEÇİŞİ (GPU DOSTU) */
+/* 3. PERFORMANSLI PÜRÜZSÜZ RENK GEÇİŞİ */
 @media (min-width: 1200px) {
-    /* Sadece renklerin pürüzsüz değişmesini sağlar, ekrandan fırlama yapmaz */
-    .channel__97d49, .wrapper__2ea32, .message__3c6e3, .interactive_b39cd2, .member__29fb5 {
+    [class*="channel_"], [class*="wrapper_"], [class*="message_"], [class*="interactive_"], [class*="member_"] {
         transition: background-color 0.15s ease-in-out !important;
         will-change: background-color;
     }
 }
 
-/* Discord küçükken veya oyundayken tüm efektleri kapat */
+/* Discord küçükken tüm animasyon efektlerini kapat */
 @media (max-width: 1199px) {
-    *, .channel__97d49, .wrapper__2ea32, .message__3c6e3, .interactive_b39cd2, .member__29fb5 {
+    *, [class*="channel_"], [class*="wrapper_"], [class*="message_"], [class*="interactive_"], [class*="member_"] {
         transition: none !important;
         will-change: auto !important;
     }
