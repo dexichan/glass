@@ -58,3 +58,13 @@ body {
     z-index: -1;
 }
 */
+/* SOL ŞERİTTEKİ TÜM SİNSİ SİYAH KATMANLARI ERİTME */
+nav[class*="sidebar_"],
+[class*="sidebar_"] [class*="container_"],
+[class*="sidebar_"] nav,
+[class*="sidebar_"] [class*="scroller_"],
+[class*="panels_"],
+[class*="container_"] [class*="inner_"] {
+    background: transparent !important;
+    background-color: transparent !important;
+}
