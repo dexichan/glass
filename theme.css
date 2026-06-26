@@ -1,79 +1,56 @@
-CSS
 /**
- * @name Saf Seffaf Net Tema
+ * @name Saf Kontrastli Cam Tema
  * @author Musab
- * @version 1.2.0
- * @description Tamamen seffaf, yuksek okunurluklu, ultra parlak yazili ve performans dostu Discord temasi.
+ * @version 2.0.0
+ * @description Orijinal renklere dokunmayan, hafif gri/siyah cam katmanli, yuksek kontrastli ve performansli tema.
  */
 
-/* 1. TÜM GRİ ARKA PLANLARI SIFIRLAMA */
-:root {
-    --background-primary: transparent !important;
-    --background-secondary: transparent !important;
-    --background-secondary-alt: transparent !important;
-    --background-tertiary: transparent !important;
-    --background-accent: transparent !important;
-    --background-floating: rgba(0, 0, 0, 0.5) !important; /* Sağ tık menüleri okunabilsin diye hafif karartı */
-    
-    --background-modifier-hover: rgba(255, 255, 255, 0.05) !important;
-    --background-modifier-active: rgba(255, 255, 255, 0.1) !important;
-    --background-modifier-selected: rgba(255, 255, 255, 0.1) !important;
-    --deprecated-card-bg: transparent !important;
-
-    /* Yazı renklerini en baştan saf beyaza zorluyoruz */
-    --text-normal: #ffffff !important;
-    --text-muted: #e0e0e0 !important;
-    --channels-default: #e5e5e5 !important;
-    --header-primary: #ffffff !important;
-    --header-secondary: #ffffff !important;
-    --interactive-normal: #e5e5e5 !important;
-    --interactive-hover: #ffffff !important;
-    --interactive-active: #ffffff !important;
+/* 1. HAFİF GRİ/SİYAH CAM KATMANI (TIKLAMA SORUNUNU ÇÖZEN KISIM) */
+/* Discord'un tamamen şeffaf olup arkaya tıklanmasını engellemek ve nerede olduğunu görmek için hafif bir koyuluk ekliyoruz */
+#app-mount {
+    background-color: rgba(20, 20, 20, 0.45) !important; /* Çok hafif, şeffaf bir gri/siyah cam katmanı */
 }
 
-/* Discord ana katmanlarındaki tüm grilikleri siler */
-.theme-dark, .theme-light, #app-mount, .app-3xd6d0, .bg-1QIAzs, .wrapper-1_HaEi,
-.container-1NXEAG, .privateChannels-oVe76H, .panels-3w311x, .chat-2ZfGZ9,
-.container-3w7wHL, .members-3WRCEx, .membersWrap-3NUR2t, .nowPlayingColumn-1eCBCN,
-.channelTextArea-1F3v1m, .scrollableContainer-15eg7h {
+/* Ana katmanları transparan yaparak üst üste binip kararmasını engelliyoruz */
+.theme-dark, .theme-light,
+.app_b1f720, .bg__121ef, .wrapper_da6532, .container_e40c16, 
+.privateChannels__35e86, .panels__35e86, .chat__5c473, 
+.members__116b3, .membersWrap__116b3, .nowPlayingColumn_c2739c, 
+.channelTextArea__5c473, .scrollableContainer__5c473 {
     background: transparent !important;
     background-color: transparent !important;
 }
 
-/* 2. ULTRA PARLAK VE GÖLGELİ YAZILAR (SOLUKLUĞU BİTİREN KISIM) */
-*, .name__8d1ec, .username_d272d6, .channelName__8d1ec, .activityText__78a59, 
-.customStatus__78a59, .text-xs-normal__46d7a, .activity__3cd7e, .subText__78a59 {
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 1), 0 0 4px rgba(0, 0, 0, 1) !important;
-    -webkit-font-smoothing: antialiased;
+/* Sağ tık menüleri ve popoutlar biraz daha belirgin olsun */
+.layer_cd0d4a {
+    background-color: rgba(15, 15, 15, 0.8) !important;
 }
 
-/* Kullanıcı adları ve kanal isimlerini kalınlaştırıp zifiri beyaza çeker */
-.username_d272d6, .name__8d1ec, .channelName__8d1ec, .title__5d473, .clickable__8d1ec .icon__8d1ec {
-    color: #ffffff !important;
-    font-weight: 700 !important;
+/* 2. KONTRAST ARTIRMA (YAZI VE ROL RENKLERİNE DOKUNMADAN OKUNURLUK) */
+/* Yazı renklerini değiştirmeden, sadece arkalarına net siyah bir gölge basarak kontrastı tavan yaptırır */
+.messageContent__3c6e3, 
+.name__8d1ec, 
+.username_d272d6, 
+.channelName__8d1ec,
+.activityText__78a59,
+.text-xs-normal__46d7a {
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 1), 0 0 2px rgba(0, 0, 0, 1) !important;
+    -webkit-font-smoothing: antialiased !important;
 }
 
-/* "Spotify dinliyor" veya "PUBG oynuyor" gibi alt durum yazılarını netleştirir */
-.activityText__78a59, .customStatus__78a59, .activity__3cd7e, .text-xs-normal__46d7a, .subText__78a59 {
-    color: #f5f5f5 !important;
-    font-weight: 600 !important;
-}
-
-/* 3. PERFORMANS DOSTU GEÇİŞ ANİMASYONLARI (MAX %10 GPU) */
+/* 3. PERFORMANSLI PÜRÜZSÜZ RENK GEÇİŞİ (GPU DOSTU) */
 @media (min-width: 1200px) {
+    /* Sadece renklerin pürüzsüz değişmesini sağlar, ekrandan fırlama yapmaz */
     .channel__97d49, .wrapper__2ea32, .message__3c6e3, .interactive_b39cd2, .member__29fb5 {
-        transition: background-color 0.22s ease-in-out, transform 0.18s ease-out !important;
-        will-change: transform, background-color;
+        transition: background-color 0.15s ease-in-out !important;
+        will-change: background-color;
     }
-    .wrapper__2ea32:hover { transform: translateX(2px) !important; }
-    .channel__97d49:hover { transform: translateX(3px) !important; }
-    .interactive_b39cd2:hover, .member__29fb5:hover { transform: scale(1.01) !important; }
 }
 
-/* PENCERE KÜÇÜLÜNCE VEYA ARKA PLANDAYKEN ANİMASYONLARI KAPATMA (FPS KORUMASI) */
+/* Discord küçükken veya oyundayken tüm efektleri kapat */
 @media (max-width: 1199px) {
     *, .channel__97d49, .wrapper__2ea32, .message__3c6e3, .interactive_b39cd2, .member__29fb5 {
         transition: none !important;
-        transform: none !important;
         will-change: auto !important;
     }
+}
