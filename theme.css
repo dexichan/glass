@@ -1,44 +1,29 @@
 /**
- * @name Sol Blok Yikan Saf Seffaf
+ * @name Nihai Katman Delici Saf Seffaf
  * @author Musab
  */
 
-/* Discord'un tüm ana gövde renklerini, Koyu Tema katmanlarını ve sol bloğu kökten şeffaf yapar */
-#app-mount,
-html,
-body,
-[class*="app_"],
-[class*="bg_"],
-[class*="sidebar_"],
-[class*="chat_"],
-[class*="container_"],
-[class*="channels_"],
-[class*="panels_"] {
-    background: transparent !important;
-    background-color: transparent !important;
-}
-/**
- * @name DM Seridi Dahil Saf Seffaf
- * @author Musab
- */
-
-/* Discord'un tüm ana gövde renklerini ve Koyu Tema katmanlarını şeffaf yapar */
-#app-mount,
-html,
-body,
-[class*="app_"],
-[class*="bg_"],
-[class*="chat_"],
-[class*="container_"],
-[class*="panels_"] {
+/* Discord'un tüm temel katmanlarını sıfırlar */
+#app-mount, html, body, 
+[class*="app_"], [class*="bg_"], [class*="chat_"], [class*="container_"] {
     background: transparent !important;
     background-color: transparent !important;
 }
 
-/* GÖRSELDEKİ O İNATÇI SİYAH DM ŞERİDİNİ (ARKADAŞ LİSTESİ SOLUNU) ERİTEN BÖLÜM */
-[class*="sidebar_"],
-[class*="privateChannels_"],
-[class*="scroller_"] {
+/* Sol taraftaki DM, Sunucu Listesi ve Ses Paneli elementlerini ayırt etmeksizin şeffaf yapar */
+div[class*="sidebar_"],
+nav[class*="sidebar_"],
+div[class*="privateChannels_"],
+nav[class*="privateChannels_"],
+[class*="scroller_"],
+[class*="panels_"],
+[class*="interactive_"] {
     background: transparent !important;
+    background-color: transparent !important;
+}
+
+/* Son çare: Tüm sol gövde alt elemanlarının arka plan renk dayatmalarını siler */
+div[class*="sidebar_"] div, 
+div[class*="privateChannels_"] div {
     background-color: transparent !important;
 }
