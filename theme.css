@@ -1,42 +1,39 @@
 /**
- * @name Sorunsuz Saf Şeffaf Tema
+ * @name Son Nakavt Seffaf Tema
  * @author Musab
+ * @version 5.0.0
+ * [Guncel Discord Altyapisina Tam Uyumlu]
  */
 
-/* 1. O İLK ÇALIŞAN KUSURSUZ ŞEFFAFLIK KODU */
-:root {
-    --background-primary: rgba(0, 0, 0, 0) !important;
-    --background-secondary: rgba(0, 0, 0, 0) !important;
-    --background-secondary-alt: rgba(0, 0, 0, 0) !important;
-    --background-tertiary: rgba(0, 0, 0, 0) !important;
-    --background-accent: rgba(0, 0, 0, 0) !important;
-    --background-floating: rgba(0, 0, 0, 0.7) !important; /* Sağ tık menüleri havada kalmasın diye */
-    --background-modifier-hover: rgba(255, 255, 255, 0.05) !important;
-    --background-modifier-active: rgba(255, 255, 255, 0.1) !important;
-    --background-modifier-selected: rgba(255, 255, 255, 0.1) !important;
+/* 1. TÜM ARKA PLAN SİSTEMİNİ KÖKTEN KÖR ETME */
+/* Discord ne kadar güncelleme yaparsa yapsın, tüm elementlerin arka plan rengini tamamen sıfırlar */
+*, 
+#app-mount, 
+html, 
+body {
+    background-image: none !important;
+    background-color: transparent !important;
 }
 
-.theme-dark, .theme-light {
-    --background-primary: transparent !important;
-    --background-secondary: transparent !important;
-    --background-tertiary: transparent !important;
-    --background-accent: transparent !important;
+/* 2. SADECE SAĞ TIK MENÜLERİ VE AYARLAR OKUNABİLSİN DİYE SABİT KATMAN */
+/* Bunlar şeffaf olursa yazıların içi içe girer, o yüzden hafif bir karartı şart */
+[class*="layer_"], 
+[class*="menu_"], 
+[class*="popout_"], 
+[class*="modal_"] {
+    background-color: rgba(10, 10, 10, 0.85) !important;
 }
 
-#app-mount, .app-3xd6d0, .bg-1QIAzs, .wrapper-1_HaEi {
-    background: transparent !important;
-}
-
-/* 2. GÖLGESİZ BELİRGİNLİK (RENKLERE DOKUNMADAN) */
-/* Gölge kullanmıyoruz. Onun yerine yazıları kalınlaştırıp (font-weight: 700) keskinleştiriyoruz */
-[class^="name_"], [class^="username_"], [class^="channelName_"], [class^="activityText_"] {
+/* 3. YAZILARI KALINLAŞTIRMA VE PÜRÜZSÜZ GEÇİŞ */
+/* Orijinal renklere ve rollere dokunmadan sadece okunurluğu artırır, kasmayı engeller */
+[class*="name_"], 
+[class*="username_"], 
+[class*="channelName_"] {
     font-weight: 700 !important;
-    -webkit-font-smoothing: antialiased !important;
 }
 
-/* 3. PÜRÜZSÜZ ANİMASYON (EKRAN KARTI DOSTU) */
 @media (min-width: 1200px) {
-    [class^="channel_"], [class^="interactive_"], [class^="member_"] {
-        transition: background-color 0.15s ease !important;
+    [class*="channel_"], [class*="interactive_"], [class*="member_"] {
+        transition: background-color 0.12s ease-in-out !important;
     }
 }
