@@ -1,10 +1,10 @@
 /**
- * @name Özüne Dönen Şeffaf Tema
+ * @name Sifir Hata Seffaf Tema
  * @author Musab
- * @version 3.0.0 (Flash Sürümü Gururla Sunar)
+ * @version 4.0.0 
  */
 
-/* 1. O İLK ÇALIŞAN EFSANE ŞEFFAFLIK KODU (GERİ GELDİ) */
+/* 1. O İLK ÇALIŞAN EFSANE ŞEFFAFLIK KODU (SAF HALİ) */
 :root {
     --background-primary: rgba(0, 0, 0, 0) !important;
     --background-secondary: rgba(0, 0, 0, 0) !important;
@@ -28,13 +28,7 @@
     background: transparent !important;
 }
 
-/* 2. SADECE YAZI KONTRASTI (RENKLER BOZULMAZ) */
-/* Şeffaflığı bozmadan sadece isimlerin ve durumların arkasına siyah gölge basar */
-[class^="name_"], [class^="username_"], [class^="channelName_"], [class^="activityText_"] {
-    text-shadow: 0 1px 4px rgba(0,0,0,1), 0 0 2px rgba(0,0,0,1) !important;
-}
-
-/* 3. PÜRÜZSÜZ GEÇİŞ (EKRAN KARTI DOSTU) */
+/* 2. PÜRÜZSÜZ GEÇİŞ (EKRAN KARTI DOSTU - GÖLGELER İPTAL) */
 @media (min-width: 1200px) {
     [class^="channel_"], [class^="interactive_"], [class^="member_"] {
         transition: background-color 0.15s ease !important;
