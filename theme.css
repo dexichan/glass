@@ -68,26 +68,18 @@ nav[class*="sidebar_"],
     background: transparent !important;
     background-color: transparent !important;
 }
-/* SUNUCU ADI VE SES ODALARININ OLDUĞU ANA BLOKU ŞEFFAFLAŞTIRMA */
-.sidebar-1tnWFu,
-nav[class*="sidebar_"],
+/* MONİTÖR KURTARAN NİHAİ ŞEFFAFLIK KODU */
+[class*="sidebar_"],
+[class*="sidebar_"] > *,
 [class*="channels_"],
-[class*="container_"] > [class*="base_"] > [class*="sidebar_"],
-[class*="animatedContainer_"], 
-[class*="bannerImg_"] {
+[class*="channels_"] > *,
+[class*="scroller_"],
+section[class*="panels_"],
+div[class*="privateChannels_"] {
     background: transparent !important;
     background-color: transparent !important;
+    mix-blend-mode: normal !important;
+    opacity: 1 !important;
 }
 
-/* En alttaki mikrofon/kulaklık kapama panelinin arkasındaki son siyahlığı da eritir */
-[class*="panels_"] {
-    background: transparent !important;
-    background-color: transparent !important;
-}
-/* SUNUCU ADI VE SES KANALLARI BÖLGESİNDEKİ TÜM KATMANLARI KÖKTEN SIFIRLAMA */
-[class*="sidebar_"] *, 
-[class*="channels_"] *, 
-[class*="scroller_"] * {
-    background-image: none !important;
-    background-color: transparent !important;
-}
+
