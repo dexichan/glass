@@ -84,3 +84,10 @@ nav[class*="sidebar_"],
     background: transparent !important;
     background-color: transparent !important;
 }
+/* SUNUCU ADI VE SES KANALLARI BÖLGESİNDEKİ TÜM KATMANLARI KÖKTEN SIFIRLAMA */
+[class*="sidebar_"] *, 
+[class*="channels_"] *, 
+[class*="scroller_"] * {
+    background-image: none !important;
+    background-color: transparent !important;
+}
