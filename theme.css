@@ -37,3 +37,24 @@ body {
         transition: background-color 0.12s ease-in-out !important;
     }
 }
+/* SON DOKUNUŞ: SES ODALARI VE SOHBETLERİN OLDUĞU SOL SİYAH DUVARI YIKMA */
+/* Bu katmanları tamamen şeffaf yaparak arkadaki karanlık temayla birleştirir */
+[class*="sidebar_"], 
+[class*="container_"], 
+[class*="chat_"], 
+[class*="panels_"] {
+    background: transparent !important;
+    background-color: transparent !important;
+}
+
+/* OKUNURLUK İÇİN HAFİF BİR KARARTMA (Opsiyonel ama önerilir) */
+/* Eğer yazılar okunmazsa bu kodu kullanabilirsin, yoksa direkt şeffaf kalsın */
+/*
+[class*="sidebar_"]::after {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background-color: rgba(10, 10, 10, 0.4) !important;
+    z-index: -1;
+}
+*/
