@@ -17,3 +17,28 @@ body,
     background: transparent !important;
     background-color: transparent !important;
 }
+/**
+ * @name DM Seridi Dahil Saf Seffaf
+ * @author Musab
+ */
+
+/* Discord'un tüm ana gövde renklerini ve Koyu Tema katmanlarını şeffaf yapar */
+#app-mount,
+html,
+body,
+[class*="app_"],
+[class*="bg_"],
+[class*="chat_"],
+[class*="container_"],
+[class*="panels_"] {
+    background: transparent !important;
+    background-color: transparent !important;
+}
+
+/* GÖRSELDEKİ O İNATÇI SİYAH DM ŞERİDİNİ (ARKADAŞ LİSTESİ SOLUNU) ERİTEN BÖLÜM */
+[class*="sidebar_"],
+[class*="privateChannels_"],
+[class*="scroller_"] {
+    background: transparent !important;
+    background-color: transparent !important;
+}
